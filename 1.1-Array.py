@@ -1,6 +1,21 @@
 # 1 Given an array of 'n' nubers and a target value 't', find two numbers whose sum is 't':
 # Example: a=[5, 3, 6, 8, 2, 4, 7], t=10 => [3, 7] or [6, 4] or [8, 2]
 
+def twoSum(self, numbers: List[int], target: int) -> List[int]:
+    left, right = 0, len(numbers) - 1
+    while left < right:
+        if numbers[left] + numbers[right] > target:
+            right -= 1
+        elif numbers[left] + numbers[right] < target:
+            left += 1
+        else:
+            return [left + 1, right + 1]
+
+
+arr = [5, 3, 6, 8, 2, 4, 7]
+t = 10
+two_sum(arr, t)
+
 # 2 Two Sum II - Input Array is sorted
 # Given a 1-indexed array of integers numbers that are already sorted in non-decreasing order, find two numbers such that they add up to a specific target number. Let these two numbers be numbers[index1] and numbers[index2] where 1 <= index1 < index2 <= numbers.length
 
