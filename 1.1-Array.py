@@ -17,24 +17,45 @@ def twoSum(numbers: List[int], target: int) -> List[int]:
 
 arr = [5, 3, 6, 8, 2, 4, 7]
 t = 10
+print("#1 Two Sum Basic")
 print("Initial Values: ", arr, "target Value: ", t)
-print(twoSum(arr, t))
+print(twoSum(arr, t), "\n")
 
 
 
 # 2 Two Sum II - Input Array is sorted
 # Given a 1-indexed array of integers numbers that are already sorted in non-decreasing order, find two numbers such that they add up to a specific target number. Let these two numbers be numbers[index1] and numbers[index2] where 1 <= index1 < index2 <= numbers.length
+#  numbers[index1] and numbers[index2] where 1 <= index1 < index2 <= numbers.length
 
 def twoSum2(numbers: List[int], target: int) -> List[int]:
+    # Outer Loop
     for i in range(len(numbers)):
-        for j in range(i+1, len(numbers)):
+        # Inner Loop, range of nums and stop at length of input
+        for j in range(len(numbers)):
             if numbers[i] + numbers[j] == target:
-                print(numbers[i], numbers[j])
+                    # Return index values
+                    return ([i+1, j+1])
 
-arr2 = [1, 2, 5, 6, 7, 9, 11]
-t2 = 17
-twoSum2(arr2, t2)
 
+print("#2 Two Sum Sorted Ascending")
+arr2 = [2, 7, 11, 15]
+t2 = 9
+print(twoSum2(arr2, t2), "Bad solution, repeats indexes if duplicates in input")
+
+def twoSumSorted(numbers: List[int], target: int) -> List[int]:
+    l = 0
+    r = len(numbers)-1
+    while l<=r:
+        curr_sum = numbers[l] + numbers[r]
+        if target == curr_sum:
+            return [l+1,r+1]
+        elif target > curr_sum:
+            l += 1
+        else:
+            r -= 1
+    return []
+
+print(twoSumSorted(arr2, t2), "Better solution")
 
 # 3 Given an array 'a' of 'n' numbers and a count 'k', find the 'k' largest values in the array 'a'.
 # Example: a=[5, 1, 3, 6, 8, 2, 4, 7], k=3  ⇒  [6, 8, 7]
