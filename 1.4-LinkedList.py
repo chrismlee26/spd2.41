@@ -1,5 +1,4 @@
 # 1 Given a single-linked list, find the middle value in the list.
-# Example
 
 # 2 Given a singly-linked list, reverse the order of the list by modifying the nodes’ links.
 
