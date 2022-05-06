@@ -40,7 +40,7 @@ def twoSum2(numbers: List[int], target: int) -> List[int]:
 print("#2 Two Sum Sorted Ascending")
 arr2 = [2, 7, 11, 15]
 t2 = 9
-print(twoSum2(arr2, t2), "Bad solution, repeats indexes if duplicates in input")
+# print(twoSum2(arr2, t2), "Bad solution, repeats indexes if duplicates in input")
 
 def twoSumSorted(numbers: List[int], target: int) -> List[int]:
     l = 0
@@ -55,10 +55,24 @@ def twoSumSorted(numbers: List[int], target: int) -> List[int]:
             r -= 1
     return []
 
-print(twoSumSorted(arr2, t2), "Better solution")
+print(twoSumSorted(arr2, t2), "Better solution", "\n")
 
 # 3 Given an array 'a' of 'n' numbers and a count 'k', find the 'k' largest values in the array 'a'.
 # Example: a=[5, 1, 3, 6, 8, 2, 4, 7], k=3  ⇒  [6, 8, 7]
+def largest_sum(array, count):
+    sorted_arr = sorted(array)
+    return sorted_arr[(count * -1):]
+
+print("#3 Largest nums in array")
+sample_array = [5, 1, 3, 6, 8, 2, 4, 7]
+sample_count = 3
+print(largest_sum(sample_array, sample_count), "\n")
+
 
 # 4 Given two arrays 'a' and 'b' of numbers and a target value 't', find a number from each array whose sum is closest to 't'.
 # Example: a=[9, 13, 1, 8, 12, 4, 0, 5],  b=[3, 17, 4, 14, 6],  t=20  ⇒  [13, 6] or [4, 17] or [5, 14]
+def two_array_sum():
+    pass
+
+
+print("#4 Target sum from two arrays")
