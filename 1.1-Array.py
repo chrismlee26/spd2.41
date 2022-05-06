@@ -72,13 +72,14 @@ print(largest_sum(sample_array, sample_count), "\n")
 # 4 Given two arrays 'a' and 'b' of numbers and a target value 't', find a number from each array whose sum is closest to 't'.
 # Example: a=[9, 13, 1, 8, 12, 4, 0, 5],  b=[3, 17, 4, 14, 6],  t=20  ⇒  [13, 6] or [4, 17] or [5, 14]
 def two_array_sum(arr1, arr2, target):
-    a, b = len(arr1), len(arr2)
-    return a, b
-
+    for i in range(0, len(arr1)):
+        for j in range(0, len(arr2)):
+            if (arr1[i] + arr2[j] == target):
+                print (arr1[i], arr2[j])
 
 print("#4 Target sum from two arrays")
 a = [9, 13, 1, 8, 12, 4, 0, 5]
 b = [3, 17, 4, 14, 6]
-t = 20
+t = 19
 
-print(two_array_sum(a, b, t))
+two_array_sum(a, b, t)
