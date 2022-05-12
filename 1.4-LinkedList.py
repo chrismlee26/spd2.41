@@ -140,3 +140,20 @@ print('\n')
 # --------------------
 # 5. New: Given a singly-linked list and an integer k, find the value in the kth-to-last node.
 
+def print_kth_to_last(linked_list, k):
+    current = linked_list.head
+
+    length = 0
+    while current:
+        length += 1
+        current = current.next
+
+    if k > length:
+        return 
+    current = linked_list.head
+    for i in range(0, length - k):
+        current = current.next
+    return current.value
+
+print("--------- Q5 ---------")
+print(print_kth_to_last(ll3, 2))

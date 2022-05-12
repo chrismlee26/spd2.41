@@ -9,6 +9,7 @@ class LinkedList:
         self.head = None
         self.tail = None 
         self.length = 0
+
     def add(self, value):
         new_node = Node(value)
         if self.head is None:
@@ -18,6 +19,7 @@ class LinkedList:
             self.tail.next = new_node
             self.tail = new_node
         self.length += 1
+
     def remove(self, value):
         current = self.head
         previous = None
@@ -32,8 +34,10 @@ class LinkedList:
             previous = current
             current = current.next
         return False
+
     def __len__(self):
         return self.length
+
     def __str__(self):
         values = []
         current = self.head
@@ -41,17 +45,21 @@ class LinkedList:
             values.append(current.value)
             current = current.next
         return str(values)
+
     def __repr__(self):
         return self.__str__()
+
     def __iter__(self):
         self.current = self.head
         return self
+
     def __next__(self):
         if self.current is None:
             raise StopIteration
         value = self.current.value
         self.current = self.current.next
         return value
+        
     # append
     def append(self, value):
         new_node = Node(value)
