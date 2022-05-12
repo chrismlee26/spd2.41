@@ -20,7 +20,9 @@ def reverse_linked_list(linked_list):
     linked_list.head = previous
     return linked_list
 
-# print(reverse_linked_list(regular_list))
+print("--------- Q1 ---------")
+print(reverse_linked_list(regular_list))
+print("\n")
 
 # --------------------
 # Question 2
@@ -56,7 +58,9 @@ def interleave_linked_list(linked_list):
     return linked_list
 
 # Can't get this one to work.
+# print("--------- Q2 ---------")
 # print(interleave_linked_list(linkedlist))
+# print('\n')
 
 
 # --------------------
@@ -91,17 +95,48 @@ def rotate_linked_list(linkedlist, k):
 
     return linkedlist
 
+print("--------- Q3 ---------")
 print(rotate_linked_list(linkedlist, 4))
+print('\n')
 
 
 # --------------------
 # Question 4
 # --------------------
-# 3. Given an array of k singly-linked lists, each of whose values are in sorted order, combine all nodes (do not create new nodes) into one singly-linked list with all values in order.
 
+ll1 = LinkedList()
+ll1.append(1)
+ll1.append(2)
+ll1.append(3)
+
+ll2 = LinkedList()
+ll2.append(4)
+ll2.append(5)
+ll2.append(6)
+
+ll3 = LinkedList()
+ll3.append(7)
+ll3.append(8)
+ll3.append(9)
+
+# 4. Given an array of k singly-linked lists, each of whose values are in sorted order, combine all nodes (do not create new nodes) into one singly-linked list with all values in order.
+# Combine a list of sorted linked lists into one sorted linked list.
+def combine_linked_lists(linked_lists):
+    if len(linked_lists) == 0:
+        return
+    if len(linked_lists) == 1:
+        return linked_lists[0]
+    if len(linked_lists) == 2:
+        return linked_lists[0].merge(linked_lists[1])
+    else:
+        return linked_lists[0].merge(combine_linked_lists(linked_lists[1:]))
+
+print("--------- Q4 ---------")
+print(combine_linked_lists([ll1, ll2, ll3]))
+print('\n')
 
 # --------------------
 # Question 5
 # --------------------
-# 4. New: Given a singly-linked list and an integer k, find the value in the kth-to-last node.
+# 5. New: Given a singly-linked list and an integer k, find the value in the kth-to-last node.
 
