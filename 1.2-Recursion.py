@@ -61,7 +61,7 @@ def t9_letters(digits):
         # if there are more digits, add the letters to the list and then add the combinations of the remaining digits
         else:
             for letter in letters:
-                combinations.append(letter + digits)
+                combinations.append(letter)
     return combinations
 
 print(t9_letters("23"))
