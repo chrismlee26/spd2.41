@@ -6,7 +6,7 @@
 # --------------------
 
 
-# Maybe next time you want to assign a linked list problem to someone else you should at least have the courtesy to write the code for it. 
+# Maybe next time you want to assign linked list and bst problems to someone else you should at least have the courtesy to write the code for it. 
 
 
 # Linked List Node
@@ -135,10 +135,80 @@ print(combine_sorted_linked_lists(list1, list2))
 # Question 2
 # --------------------
 
-
+def convert_bst_to_sorted_doubly_linked_list(tree):
+    # create a new list to store the sorted list
+    sorted_list = LinkedList()
+    # create a pointer to the root node of the tree
+    current = tree.root
+    # while the current node is not None
+    while current:
+        # add the current node to the sorted list
+        sorted_list.append(current.value)
+        # move the current node to the left child
+        current = current.left
+    # return the sorted list
+    return sorted_list
 
 
 #3.  Let’s say a binary tree is "super balanced" if the difference between the depths of any two leaf nodes is at most one. Write a function to check if a binary tree is "super balanced".
 # --------------------
 # Question 3
 # --------------------
+
+def is_it_super_balanced(tree):
+    # create a stack to store the nodes
+    stack = []
+    # create a variable to store the depth of the current node
+    current_depth = 0
+    # create a variable to store the depth of the deepest node
+    deepest_depth = 0
+    # create a variable to store the difference between the depths of the deepest node and the current node
+    difference = 0
+    # create a variable to store the result of the function
+    result = True
+    # create a pointer to the root node of the tree
+    current = tree.root
+    # while the current node is not None
+    while current:
+        # if the current node has a left child
+        if current.left:
+            # add the current node to the stack
+            stack.append(current)
+            # move the current node to the left child
+            current = current.left
+            # increase the depth of the current node
+            current_depth += 1
+        # if the current node has no left child
+        else:
+            # if the current node has a right child
+            if current.right:
+                # add the current node to the stack
+                stack.append(current)
+                # move the current node to the right child
+                current = current.right
+                # increase the depth of the current node
+                current_depth += 1
+            # if the current node has no right child
+            else:
+                # if the stack is not empty
+                if stack:
+                    # pop the last node from the stack
+                    current = stack.pop()
+                    # decrease the depth of the current node
+                    current_depth -= 1
+                # if the stack is empty
+                else:
+                    # set the deepest depth to the current depth
+                    deepest_depth = current_depth
+                    # set the current depth to 0
+                    current_depth = 0
+                    # set the current node to None
+                    current = None
+    # set the difference between the depths of the deepest node and the current node
+    difference = deepest_depth - current_depth
+    # if the difference is greater than 1
+    if difference > 1:
+        # set the result to False
+        result = False
+    # return the result
+    return result
