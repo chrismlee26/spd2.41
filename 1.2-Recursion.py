@@ -33,3 +33,36 @@ print(find_indexes(instructors, 'Braus'))
 # Question 2
 # --------------------
 
+def t9_letters(digits):
+    # create a dictionary of all possible combinations
+    t9_dict = {
+        "2": ["a", "b", "c"],
+        "3": ["d", "e", "f"],
+        "4": ["g", "h", "i"],
+        "5": ["j", "k", "l"],
+        "6": ["m", "n", "o"],
+        "7": ["p", "q", "r", "s"],
+        "8": ["t", "u", "v"],
+        "9": ["w", "x", "y", "z"]
+    }
+    # create a list to store all possible combinations
+    combinations = []
+
+    while len(digits) > 0:
+        # get the first digit
+        digit = digits[0]
+        # get the list of possible combinations for that digit
+        letters = t9_dict[digit]
+        # remove the first digit from the string
+        digits = digits[1:]
+        # if there are no more digits, add the letters to the list
+        if len(digits) == 0:
+            combinations.extend(letters)
+        # if there are more digits, add the letters to the list and then add the combinations of the remaining digits
+        else:
+            for letter in letters:
+                combinations.append(letter + digits)
+    return combinations
+
+print(t9_letters("23"))
+print(t9_letters("4663"))
