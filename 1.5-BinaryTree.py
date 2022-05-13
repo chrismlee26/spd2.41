@@ -12,41 +12,32 @@ tree1.add(6)
 tree1.add(6)
 tree1.add(6)
 tree1.add(9)
-# arr = [4, 6, 6, 6, 9], 
+tree1.printTree()
+arr = [4, 6, 6, 6, 9] 
 # key = 6
 
 # Given an array of numbers sorted in ascending order, find the range of a given number ‘key’. The range of the ‘key’ will be the first and last position of the ‘key’ in the array.
-def find_range_of_tree(tree1, target):
-    if tree1.root is None:
-        return [-1, -1]
-    else:
-        return find_range_of_tree_helper(tree1.root, target)
+# Write a function to return the range of the ‘key’. If the ‘key’ is not present return [-1, -1].
+# Input:
 
-    
-def find_range_of_tree_helper(node, target):
-    if node is None:
-        return [-1, -1]
-    if node.v == target:
-        return find_range_of_tree_helper(node.l, target)
-    elif node.v < target:
-        return find_range_of_tree_helper(node.r, target)
-    else:
-        return [node.v, node.v]
+def find_indexes(arr, target):
+    if len(arr) == 0:
+        return (-1, -1)
+    if arr[0] == target:
+        return 0
+    # Find all instances of target
+    indexes = []
+    for i in range(len(arr)):
+        if arr[i] == target:
+            indexes.append(i)
+    # Return first and last instance of target
+    if len(indexes) == 0:
+        return (-1, -1)
+    return (indexes[0], indexes[-1])
 
-    
 print("--------- Q1 ---------")
-print(find_range_of_tree(tree1, 6))
-
-
-# Examples
-# input1 = [4, 6, 6, 6, 9] key1 = 6
-# output1 = [1, 3]
-
-# input2 = [1, 3, 8, 10, 15] key2 = 10
-# output2 = [3, 3]
-
-# input3 = [1, 3, 8, 10, 15] key3 = 12
-# output3 = [-1, -1]
+print(find_indexes(arr, 6))
+print(find_indexes(arr, 3))
 
 
 # Problem 2
