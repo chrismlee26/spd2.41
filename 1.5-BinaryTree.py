@@ -38,12 +38,21 @@ def find_indexes(arr, target):
 print("--------- Q1 ---------")
 print(find_indexes(arr, 6))
 print(find_indexes(arr, 3))
+print("\n")
 
 
 # Problem 2
 # Find the maximum value in a given Bitonic array. An array is considered bitonic if it is monotonically increasing and then monotonically decreasing. Monotonically increasing 
 # or decreasing means that for any index i in the array arr[i] != arr[i+1].
+# Write a function to find the maximum value in a given Bitonic array.
+def find_max_bitonic(arr):
+    arr.sort()
+    return arr[-1]
 
-# input = [1, 3, 8, 12, 4, 2]
-# output = 12
+
 # Explanation: The maximum number in the input bitonic array is '12'.
+input = [1, 3, 8, 12, 4, 2]
+# output = 12
+
+print("--------- Q1 ---------")
+print(find_max_bitonic(input))
